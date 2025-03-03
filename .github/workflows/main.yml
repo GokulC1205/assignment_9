@@ -27,7 +27,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      # - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
          
 
       # Runs a single command using the runners shell
@@ -41,20 +41,20 @@ jobs:
           echo test, and deploy your project.
 
 
-  # build-api:
-  #   runs-on: windows-latest
-  #   steps:
-  #     - run: echo "Building API"
+  build-api:
+    runs-on: windows-latest
+    steps:
+      - run: echo "Building API"
 
 
-  # build-db:
-  #   needs: build-app
-  #   runs-on: windows-latest
-  #   steps:
-  #     - run: echo "Hello Windows"
+  build-db:
+    needs: build-app
+    runs-on: windows-latest
+    steps:
+      - run: echo "Hello Windows"
   
-  # package:
-  #   needs: [build-app, build-db]
-  #   runs-on: macos-latest
-  #   steps: 
-  #     - run: echo "Hello MacOS  "
+  package:
+    needs: [build-app, build-db]
+    runs-on: macos-latest
+    steps: 
+      - run: echo "Hello MacOS  "
